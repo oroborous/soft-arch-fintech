@@ -2,11 +2,11 @@ package edu.wctc;
 
 import edu.wctc.green.GreenLoanPayment;
 import edu.wctc.lombardo.LombardoLoanPayment;
-import edu.wctc.read.GreenAdapter;
-import edu.wctc.read.LombardoAdapter;
-import edu.wctc.read.Payment;
-import edu.wctc.read.PaymentProcessor;
-import edu.wctc.read.util.IgnoreMe;
+import edu.wctc.green.GreenAdapter;
+import edu.wctc.lombardo.LombardoAdapter;
+import edu.wctc.wisco.Payment;
+import edu.wctc.wisco.PaymentProcessor;
+import edu.wctc.wisco.util.IgnoreMe;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,17 +19,17 @@ public class Main {
     public static void main(String[] args) {
         IgnoreMe.generateGreenPayments();
         IgnoreMe.generateLombardoPayments();
-        IgnoreMe.generateReadPayments();
+        IgnoreMe.generateWiscoPayments();
 
-        List<Payment> readPayments = readReadPayments();
+        List<Payment> wiscoPayments = readWiscoPayments();
         List<GreenLoanPayment> greenPayments = readGreenPayments();
         List<LombardoLoanPayment> lombardoPayments = readLombardoPayments();
 
 
         PaymentProcessor processor = new PaymentProcessor();
 
-        for(Payment readPayment : readPayments) {
-            processor.addPayment(readPayment);
+        for(Payment wiscoPayment : wiscoPayments) {
+            processor.addPayment(wiscoPayment);
         }
 
         for(GreenLoanPayment greenPayment : greenPayments) {
@@ -70,11 +70,11 @@ public class Main {
         return new ArrayList<>(); // return empty list on exception
     }
 
-    private static List<Payment> readReadPayments() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("read.obj"))) {
+    private static List<Payment> readWiscoPayments() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("wisco.obj"))) {
             return (List<Payment>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error reading Read Holdings file");
+            System.out.println("Error reading Wisco Holdings file");
             e.printStackTrace();
         }
 

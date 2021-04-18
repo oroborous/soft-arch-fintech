@@ -1,6 +1,6 @@
-package edu.wctc.read;
+package edu.wctc.green;
 
-import edu.wctc.green.GreenLoanPayment;
+import edu.wctc.wisco.Payment;
 
 import java.time.*;
 

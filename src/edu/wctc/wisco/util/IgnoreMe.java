@@ -1,9 +1,9 @@
-package edu.wctc.read.util;
+package edu.wctc.wisco.util;
 
 import edu.wctc.green.GreenLoanPayment;
 import edu.wctc.lombardo.LombardoLoanPayment;
-import edu.wctc.read.ReadLoanPayment;
-import edu.wctc.read.Payment;
+import edu.wctc.wisco.WiscoLoanPayment;
+import edu.wctc.wisco.Payment;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -84,8 +84,8 @@ public class IgnoreMe {
 
     }
 
-    public static void generateReadPayments() {
-        List<Payment> readPayments = new ArrayList<>();
+    public static void generateWiscoPayments() {
+        List<Payment> wiscoPayments = new ArrayList<>();
 
         LocalDate now = LocalDate.now();
         Random random = new Random();
@@ -105,13 +105,13 @@ public class IgnoreMe {
             float amount = random.nextInt(200000) / 100.0f + 500;
 
             LocalDate date = now.minusMonths(monthsOffset).minusDays(daysOffset);
-            readPayments.add(new ReadLoanPayment(account, date, amount));
+            wiscoPayments.add(new WiscoLoanPayment(account, date, amount));
         }
 
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("read.obj"))) {
-            oos.writeObject(readPayments);
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("wisco.obj"))) {
+            oos.writeObject(wiscoPayments);
         } catch (IOException e) {
-            System.out.println("Error creating Read Holdings file");
+            System.out.println("Error creating Wisco Holdings file");
             e.printStackTrace();
         }
 

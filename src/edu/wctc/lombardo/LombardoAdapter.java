@@ -1,6 +1,6 @@
-package edu.wctc.read;
+package edu.wctc.lombardo;
 
-import edu.wctc.lombardo.LombardoLoanPayment;
+import edu.wctc.wisco.Payment;
 
 import java.time.LocalDate;
 

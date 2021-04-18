@@ -1,21 +1,21 @@
-package edu.wctc.read;
+package edu.wctc.wisco;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * This is the class used by Read Holdings to represent a customer's
- * mortgage payment. Read Holdings has recently acquired Lombardo
+ * This is the class used by Wisco Holdings to represent a customer's
+ * mortgage payment. Wisco Holdings has recently acquired Lombardo
  * Lending and Green Financial and must make its software accommodate
- * data from the other company's existing applications.
+ * data from the other companies' existing applications.
  */
-public class ReadLoanPayment implements Serializable, Payment {
+public class WiscoLoanPayment implements Serializable, Payment {
     private static final long serialVersionUID = 1L;
     private String customerId;
     private LocalDate paymentDate;
     private double amount;
 
-    public ReadLoanPayment(String customerId, LocalDate paymentDate, double amount) {
+    public WiscoLoanPayment(String customerId, LocalDate paymentDate, double amount) {
         this.customerId = customerId;
         this.paymentDate = paymentDate;
         this.amount = amount;

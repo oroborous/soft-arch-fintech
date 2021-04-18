@@ -1,4 +1,4 @@
-package edu.wctc.read;
+package edu.wctc.wisco;
 
 import java.util.ArrayList;
 import java.util.List;
