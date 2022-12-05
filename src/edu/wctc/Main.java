@@ -4,7 +4,7 @@ import edu.wctc.green.GreenLoanPayment;
 import edu.wctc.lombardo.LombardoLoanPayment;
 import edu.wctc.green.GreenAdapter;
 import edu.wctc.lombardo.LombardoAdapter;
-import edu.wctc.wisco.Payment;
+import edu.wctc.wisco.WiscoPayment;
 import edu.wctc.wisco.PaymentProcessor;
 import edu.wctc.wisco.util.IgnoreMe;
 
@@ -21,14 +21,14 @@ public class Main {
         IgnoreMe.generateLombardoPayments();
         IgnoreMe.generateWiscoPayments();
 
-        List<Payment> wiscoPayments = readWiscoPayments();
+        List<WiscoPayment> wiscoPayments = readWiscoPayments();
         List<GreenLoanPayment> greenPayments = readGreenPayments();
         List<LombardoLoanPayment> lombardoPayments = readLombardoPayments();
 
 
         PaymentProcessor processor = new PaymentProcessor();
 
-        for(Payment wiscoPayment : wiscoPayments) {
+        for(WiscoPayment wiscoPayment : wiscoPayments) {
             processor.addPayment(wiscoPayment);
         }
 
@@ -70,9 +70,9 @@ public class Main {
         return new ArrayList<>(); // return empty list on exception
     }
 
-    private static List<Payment> readWiscoPayments() {
+    private static List<WiscoPayment> readWiscoPayments() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("wisco.obj"))) {
-            return (List<Payment>) ois.readObject();
+            return (List<WiscoPayment>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error reading Wisco Holdings file");
             e.printStackTrace();

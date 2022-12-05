@@ -1,10 +1,10 @@
 package edu.wctc.lombardo;
 
-import edu.wctc.wisco.Payment;
+import edu.wctc.wisco.WiscoPayment;
 
 import java.time.LocalDate;
 
-public class LombardoAdapter implements Payment {
+public class LombardoAdapter implements WiscoPayment {
     private LombardoLoanPayment original;
 
 

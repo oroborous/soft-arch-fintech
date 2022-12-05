@@ -3,7 +3,7 @@ package edu.wctc.wisco.util;
 import edu.wctc.green.GreenLoanPayment;
 import edu.wctc.lombardo.LombardoLoanPayment;
 import edu.wctc.wisco.WiscoLoanPayment;
-import edu.wctc.wisco.Payment;
+import edu.wctc.wisco.WiscoPayment;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -85,7 +85,7 @@ public class IgnoreMe {
     }
 
     public static void generateWiscoPayments() {
-        List<Payment> wiscoPayments = new ArrayList<>();
+        List<WiscoPayment> wiscoPayments = new ArrayList<>();
 
         LocalDate now = LocalDate.now();
         Random random = new Random();

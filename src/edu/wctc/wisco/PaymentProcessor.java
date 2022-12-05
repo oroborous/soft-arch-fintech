@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentProcessor {
-    private final List<Payment> paymentList = new ArrayList<>();
+    private final List<WiscoPayment> wiscoPaymentList = new ArrayList<>();
 
-    public void addPayment(Payment payment) {
-        paymentList.add(payment);
+    public void addPayment(WiscoPayment wiscoPayment) {
+        wiscoPaymentList.add(wiscoPayment);
     }
 
     public double totalByMonth(int month) {
-        return paymentList.stream()
+        return wiscoPaymentList.stream()
                 .filter(p -> p.getPaymentDate().getMonthValue() == month)
-                .mapToDouble(Payment::getAmount)
+                .mapToDouble(WiscoPayment::getAmount)
                 .sum();
     }
 }

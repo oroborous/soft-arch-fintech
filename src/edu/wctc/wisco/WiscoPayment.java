@@ -2,7 +2,7 @@ package edu.wctc.wisco;
 
 import java.time.LocalDate;
 
-public interface Payment {
+public interface WiscoPayment {
     double getAmount();
 
     String getCustomerId();

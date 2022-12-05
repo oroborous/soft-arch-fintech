@@ -1,10 +1,10 @@
 package edu.wctc.green;
 
-import edu.wctc.wisco.Payment;
+import edu.wctc.wisco.WiscoPayment;
 
 import java.time.*;
 
-public class GreenAdapter implements Payment {
+public class GreenAdapter implements WiscoPayment {
     private GreenLoanPayment original;
 
     public GreenAdapter(GreenLoanPayment m) {

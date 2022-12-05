@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * Lending and Green Financial and must make its software accommodate
  * data from the other companies' existing applications.
  */
-public class WiscoLoanPayment implements Serializable, Payment {
+public class WiscoLoanPayment implements Serializable, WiscoPayment {
     private static final long serialVersionUID = 1L;
     private String customerId;
     private LocalDate paymentDate;
